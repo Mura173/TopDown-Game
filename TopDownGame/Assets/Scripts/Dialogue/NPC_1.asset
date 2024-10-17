@@ -19,7 +19,7 @@ MonoBehaviour:
   - actorName: "Mo\xE7a"
     profile: {fileID: 1591566464, guid: 0e8ec3c4729106644b589578a3812549, type: 3}
     sentence:
-      portuguese: "Ol\xE1"
+      portuguese: Oi...
       english: Hello!
       spanish: Hola
   - actorName: Heroi

@@ -19,7 +19,15 @@ public class DialogueControl : MonoBehaviour
     private bool isShowing; // Se a janela esta visivel
     private int index; // Index das falas
     private string[] sentences;
-    
+
+    public static DialogueControl instance;
+
+    // Awake e chamado antes de todos os starts na hierarquia de execucao de scripts
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
