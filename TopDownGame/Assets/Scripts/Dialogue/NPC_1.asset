@@ -26,11 +26,5 @@ MonoBehaviour:
     profile: {fileID: 0}
     sentence:
       portuguese: Tudo bem?
-      english: 
-      spanish: 
-  - actorName: "Mo\xE7a"
-    profile: {fileID: 0}
-    sentence:
-      portuguese: "Tudo, e voc\xEA?"
-      english: 
-      spanish: 
+      english: How are you?
+      spanish: Que tal?
