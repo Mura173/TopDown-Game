@@ -1564,7 +1564,7 @@ TextureImporter:
         serializedVersion: 2
         x: 16
         y: 576
-        width: 32
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1693,7 +1693,7 @@ TextureImporter:
         width: 8
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1701,6 +1701,27 @@ TextureImporter:
       bones: []
       spriteID: 5aab8e7e68a3d0c468b07be7149b407a
       internalID: 1335019224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_76
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 576
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa1f44facf723441a6dfcba893cd1b9
+      internalID: -33025153
       vertices: []
       indices: 
       edges: []
@@ -1790,6 +1811,7 @@ TextureImporter:
       Objects_73: 575385008
       Objects_74: 1039098365
       Objects_75: 1335019224
+      Objects_76: -33025153
       Objects_8: -1805481493
       Objects_9: -17456019
   mipmapLimitGroupName: 
