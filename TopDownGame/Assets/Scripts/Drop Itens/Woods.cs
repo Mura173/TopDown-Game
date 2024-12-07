@@ -9,12 +9,6 @@ public class Woods : MonoBehaviour
 
     private float timeCount;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -23,6 +17,15 @@ public class Woods : MonoBehaviour
         if (timeCount < timeMove)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerItens>().totalWood++;
+            Destroy(gameObject);
         }
     }
 }
