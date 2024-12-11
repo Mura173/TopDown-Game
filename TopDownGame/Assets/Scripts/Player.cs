@@ -9,11 +9,14 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private PlayerItens playerItens;
+
     private float initialSpeed;
     private bool _isRunning;
     private bool _isRolling;
     private bool _isCutting;
     private bool _isDigging;
+    private bool _isWatering;
 
     private int handlingObj;
 
@@ -49,11 +52,18 @@ public class Player : MonoBehaviour
         get { return _isDigging; }
         set { _isDigging = value; }
     }
+    
+    public bool isWatering
+    {
+        get { return _isWatering; }
+        set { _isWatering = value; }
+    }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         initialSpeed = speed;
+        playerItens = GetComponent<PlayerItens>();
     }
 
     private void Update()
@@ -68,11 +78,17 @@ public class Player : MonoBehaviour
             handlingObj = 2;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            handlingObj = 3;
+        }
+
         OnInput();
         OnRun();
         OnRolling();
         OnCutting();
         OnDig();
+        OnWatering();
     }
 
     private void FixedUpdate()
@@ -82,19 +98,42 @@ public class Player : MonoBehaviour
 
     #region Movement
 
+    void OnWatering()
+    {
+        if (handlingObj == 3)
+        {
+            if (Input.GetMouseButtonDown(0) && playerItens.currentWater > 0)
+            {
+                isWatering = true;
+                speed = 0;
+            }
+
+            if (Input.GetMouseButtonUp(0) || playerItens.currentWater <= 0)
+            {
+                isWatering = false;
+                speed = initialSpeed;
+            }
+
+            if (isWatering)
+            {
+                playerItens.currentWater -= 0.01f;
+            }
+        }
+    }
+
     void OnDig()
     {
         if (handlingObj == 2)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                _isDigging = true;
+                isDigging = true;
                 speed = 0;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                _isDigging = false;
+                isDigging = false;
                 speed = initialSpeed;
             }
         }       
@@ -106,13 +145,13 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                _isCutting = true;
+                isCutting = true;
                 speed = 0;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                _isCutting = false;
+                isCutting = false;
                 speed = initialSpeed;
             }
         }        
