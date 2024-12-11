@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private bool _isDigging;
     private bool _isWatering;
 
-    private int handlingObj;
+    private int _handlingObj;
 
     private Vector2 _direction;
 
@@ -59,6 +59,8 @@ public class Player : MonoBehaviour
         set { _isWatering = value; }
     }
 
+    public int HandlingObj { get => _handlingObj; set => _handlingObj = value; }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -70,17 +72,17 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            handlingObj = 1;
+            HandlingObj = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            handlingObj = 2;
+            HandlingObj = 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            handlingObj = 3;
+            HandlingObj = 2;
         }
 
         OnInput();
@@ -100,7 +102,7 @@ public class Player : MonoBehaviour
 
     void OnWatering()
     {
-        if (handlingObj == 3)
+        if (HandlingObj == 2)
         {
             if (Input.GetMouseButtonDown(0) && playerItens.currentWater > 0)
             {
@@ -123,7 +125,7 @@ public class Player : MonoBehaviour
 
     void OnDig()
     {
-        if (handlingObj == 2)
+        if (HandlingObj == 1)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -141,7 +143,7 @@ public class Player : MonoBehaviour
 
     void OnCutting()
     {
-        if (handlingObj == 1)
+        if (HandlingObj == 0)
         {
             if (Input.GetMouseButtonDown(0))
             {
